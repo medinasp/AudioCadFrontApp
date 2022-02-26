@@ -1,0 +1,17 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="projetoId"
+    [value]="service.formData.projetoId" />
+    <div class="form-group mt-3">
+        <label>NOME</label>
+        <input class="form-control form-control-lg" placeholder="Project Name"
+        name="Nome" #nome="ngModel" [(ngModel)]="service.formData.nome" required [class.invalid]="nome.invalid && nome.touched">
+    </div>
+    <div class="form-group mt-3">
+        <label>STATUS</label>
+        <input class="form-control form-control-lg" placeholder="Status"
+        name="Status" #Status="ngModel" [(ngModel)]="service.formData.status" required maxlength="6" minlength="4"[class.invalid]="Status.invalid && Status.touched">
+    </div>
+    <div class="form-group mt-3">
+        <button class="btn btn-primary w-100" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div> 
+<form>
